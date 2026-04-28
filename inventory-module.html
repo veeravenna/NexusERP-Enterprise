@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory - NexusERP Enterprise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .inv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px 30px; }
+        .inv-card { background: var(--white); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .inv-card i { font-size: 30px; margin-bottom: 10px; }
+        .inv-card h4 { font-size: 28px; font-weight: 700; margin-top: 6px; }
+        .inv-card p { font-size: 13px; color: var(--gray); margin-top: 4px; }
+        .inv-card .b1 i { color: var(--primary); background: rgba(79, 70, 229, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
+        .inv-card .b2 i { color: var(--secondary); background: rgba(16, 185, 129, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
+        .inv-card .b3 i { color: var(--accent); background: rgba(245, 158, 11, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
+        .inv-card .b4 i { color: var(--danger); background: rgba(239, 68, 68, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
+        .stock-row td:last-child { width: 120px; }
+        .stock-level { height: 8px; background: var(--light-gray); border-radius: 4px; overflow: hidden; width: 100px; }
+        .stock-fill { height: 100%; border-radius: 4px; }
+        .inv-table-card { margin: 24px 30px; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="logo"><i class="fas fa-cube"></i><span>NexusERP</span></div></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="hr-module.html" class="nav-item"><i class="fas fa-users"></i><span>HR Management</span></a>
+                <a href="finance-module.html" class="nav-item"><i class="fas fa-file-invoice-dollar"></i><span>Finance</span></a>
+                <a href="inventory-module.html" class="nav-item active"><i class="fas fa-boxes"></i><span>Inventory</span></a>
+                <a href="analytics-module.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Analytics</span></a>
+            </nav>
+            <div class="sidebar-footer"><a href="login.html" class="nav-item logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>Inventory</h1>
+                    <p class="breadcrumb">Home / Inventory</p>
+                </div>
+            </header>
+            <div class="inv-grid">
+                <div class="inv-card b1"><i class="fas fa-boxes"></i><h4>3,452</h4><p>Total Products</p></div>
+                <div class="inv-card b2"><i class="fas fa-warehouse"></i><h4>$892K</h4><p>Inventory Value</p></div>
+                <div class="inv-card b3"><i class="fas fa-exclamation-triangle"></i><h4>12</h4><p>Low Stock Items</p></div>
+                <div class="inv-card b4"><i class="fas fa-truck"></i><h4>28</h4><p>Pending Orders</p></div>
+            </div>
+            <div class="card inv-table-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-box"></i> Product Stock</h3>
+                    <select class="period-select"><option>All Categories</option><option>Electronics</option><option>Furniture</option><option>Software</option></select>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead><tr><th>Product ID</th><th>Product Name</th><th>Category</th><th>Stock</th><th>Reorder</th><th>Stock Level</th><th>Status</th></tr></thead>
+                        <tbody class="stock-row">
+                            <tr><td>#PRD-001</td><td><strong>Laptop Pro X1</strong></td><td>Electronics</td><td>12</td><td>50</td><td><div class="stock-level"><div class="stock-fill" style="width:20%;background:#EF4444;"></div></div></td><td><span class="status-badge danger">Low Stock</span></td></tr>
+                            <tr><td>#PRD-002</td><td><strong>Wireless Mouse</strong></td><td>Electronics</td><td>245</td><td>100</td><td><div class="stock-level"><div class="stock-fill" style="width:75%;background:#10B981;"></div></div></td><td><span class="status-badge success">In Stock</span></td></tr>
+                            <tr><td>#PRD-003</td><td><strong>Office Chair</strong></td><td>Furniture</td><td>86</td><td>50</td><td><div class="stock-level"><div class="stock-fill" style="width:60%;background:#4F46E5;"></div></div></td><td><span class="status-badge success">In Stock</span></td></tr>
+                            <tr><td>#PRD-004</td><td><strong>Monitor 27"</strong></td><td>Electronics</td><td>34</td><td>25</td><td><div class="stock-level"><div class="stock-fill" style="width:50%;background:#F59E0B;"></div></div></td><td><span class="status-badge pending">Medium</span></td></tr>
+                            <tr><td>#PRD-005</td><td><strong>Standing Desk</strong></td><td>Furniture</td><td>18</td><td>30</td><td><div class="stock-level"><div class="stock-fill" style="width:25%;background:#EF4444;"></div></div></td><td><span class="status-badge danger">Low Stock</span></td></tr>
+                            <tr><td>#PRD-006</td><td><strong>Keyboard RGB</strong></td><td>Electronics</td><td>312</td><td>100</td><td><div class="stock-level"><div class="stock-fill" style="width:90%;background:#10B981;"></div></div></td><td><span class="status-badge success">In Stock</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <footer class="dashboard-footer"><p>&copy; 2026 NexusERP Enterprise. All rights reserved.</p></footer>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
