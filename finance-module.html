@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance - NexusERP Enterprise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .finance-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px 30px; }
+        .finance-card { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .finance-card .icon { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 12px; }
+        .finance-card .c1 .icon { background: rgba(79, 70, 229, 0.1); color: var(--primary); }
+        .finance-card .c2 .icon { background: rgba(16, 185, 129, 0.1); color: var(--secondary); }
+        .finance-card .c3 .icon { background: rgba(245, 158, 11, 0.1); color: var(--accent); }
+        .finance-card .c4 .icon { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+        .finance-card h3 { font-size: 13px; color: var(--gray); text-transform: uppercase; }
+        .finance-card .amount { font-size: 26px; font-weight: 700; margin-top: 6px; }
+        .finance-card .change { font-size: 12px; font-weight: 600; margin-top: 4px; }
+        .finance-card .change.up { color: var(--secondary); }
+        .finance-card .change.down { color: var(--danger); }
+        .invoice-card { margin: 24px 30px; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="logo"><i class="fas fa-cube"></i><span>NexusERP</span></div></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="hr-module.html" class="nav-item"><i class="fas fa-users"></i><span>HR Management</span></a>
+                <a href="finance-module.html" class="nav-item active"><i class="fas fa-file-invoice-dollar"></i><span>Finance</span></a>
+                <a href="inventory-module.html" class="nav-item"><i class="fas fa-boxes"></i><span>Inventory</span></a>
+                <a href="analytics-module.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Analytics</span></a>
+            </nav>
+            <div class="sidebar-footer"><a href="login.html" class="nav-item logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>Finance</h1>
+                    <p class="breadcrumb">Home / Finance</p>
+                </div>
+            </header>
+            <div class="finance-grid">
+                <div class="finance-card c1"><div class="icon"><i class="fas fa-chart-line"></i></div><h3>Total Revenue</h3><div class="amount">$284,750</div><div class="change up"><i class="fas fa-arrow-up"></i> 12.5%</div></div>
+                <div class="finance-card c2"><div class="icon"><i class="fas fa-file-invoice"></i></div><h3>Invoices Sent</h3><div class="amount">342</div><div class="change up"><i class="fas fa-arrow-up"></i> 8.3%</div></div>
+                <div class="finance-card c3"><div class="icon"><i class="fas fa-hand-holding-usd"></i></div><h3>Expenses</h3><div class="amount">$156,420</div><div class="change down"><i class="fas fa-arrow-down"></i> 3.1%</div></div>
+                <div class="finance-card c4"><div class="icon"><i class="fas fa-clock"></i></div><h3>Pending Payments</h3><div class="amount">$45,280</div><div class="change down"><i class="fas fa-arrow-up"></i> 5.2%</div></div>
+            </div>
+            <div class="card invoice-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> Recent Invoices</h3>
+                    <select class="period-select"><option>This Month</option><option>Last Month</option><option>Last Quarter</option></select>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Invoice #</th><th>Client</th><th>Amount</th><th>Due Date</th><th>Status</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>#INV-8472</td><td>TechCorp Industries</td><td>$12,450</td><td>May 15, 2026</td><td><span class="status-badge success">Paid</span></td><td class="table-actions"><button class="btn-sm btn-edit"><i class="fas fa-eye"></i></button><button class="btn-sm btn-edit"><i class="fas fa-download"></i></button></td></tr>
+                            <tr><td>#INV-8471</td><td>Global Enterprises</td><td>$28,900</td><td>May 10, 2026</td><td><span class="status-badge pending">Pending</span></td><td class="table-actions"><button class="btn-sm btn-edit"><i class="fas fa-eye"></i></button><button class="btn-sm btn-edit"><i class="fas fa-download"></i></button></td></tr>
+                            <tr><td>#INV-8470</td><td>Prime Solutions</td><td>$8,650</td><td>Apr 28, 2026</td><td><span class="status-badge success">Paid</span></td><td class="table-actions"><button class="btn-sm btn-edit"><i class="fas fa-eye"></i></button><button class="btn-sm btn-edit"><i class="fas fa-download"></i></button></td></tr>
+                            <tr><td>#INV-8469</td><td>Apex Corporation</td><td>$45,000</td><td>Apr 25, 2026</td><td><span class="status-badge warning">Overdue</span></td><td class="table-actions"><button class="btn-sm btn-edit"><i class="fas fa-eye"></i></button><button class="btn-sm btn-edit"><i class="fas fa-download"></i></button></td></tr>
+                            <tr><td>#INV-8468</td><td>Stellar Systems</td><td>$15,750</td><td>Apr 20, 2026</td><td><span class="status-badge success">Paid</span></td><td class="table-actions"><button class="btn-sm btn-edit"><i class="fas fa-eye"></i></button><button class="btn-sm btn-edit"><i class="fas fa-download"></i></button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <footer class="dashboard-footer"><p>&copy; 2026 NexusERP Enterprise. All rights reserved.</p></footer>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
