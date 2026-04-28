@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Management - NexusERP Enterprise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .module-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px 30px;
+        }
+        .module-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .module-card i {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .module-card h4 {
+            font-size: 24px;
+            color: var(--dark);
+        }
+        .module-card p {
+            font-size: 13px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+        .module-card .c-blue i { color: var(--primary); }
+        .module-card .c-green i { color: var(--secondary); }
+        .module-card .c-yellow i { color: var(--accent); }
+        .module-card .c-red i { color: var(--danger); }
+        .table-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-sm {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-edit { background: rgba(79, 70, 229, 0.1); color: var(--primary); }
+        .btn-delete { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+        .btn-add {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-add:hover { background: var(--primary-dark); }
+        .card-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>NexusERP</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="hr-module.html" class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    <span>HR Management</span>
+                </a>
+                <a href="finance-module.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="inventory-module.html" class="nav-item">
+                    <i class="fas fa-boxes"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="analytics-module.html" class="nav-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="login.html" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>HR Management</h1>
+                    <p class="breadcrumb">Home / HR Management</p>
+                </div>
+            </header>
+
+            <!-- Module Stats -->
+            <div class="module-stats">
+                <div class="module-card c-blue">
+                    <i class="fas fa-users"></i>
+                    <h4>1,248</h4>
+                    <p>Total Employees</p>
+                </div>
+                <div class="module-card c-green">
+                    <i class="fas fa-user-check"></i>
+                    <h4>1,186</h4>
+                    <p>Present Today</p>
+                </div>
+                <div class="module-card c-yellow">
+                    <i class="fas fa-plane-departure"></i>
+                    <h4>42</h4>
+                    <p>On Leave</p>
+                </div>
+                <div class="module-card c-red">
+                    <i class="fas fa-user-clock"></i>
+                    <h4>20</h4>
+                    <p>Late Today</p>
+                </div>
+            </div>
+
+            <!-- Employee Table -->
+            <div class="card" style="margin: 24px 30px;">
+                <div class="card-header">
+                    <h3><i class="fas fa-users"></i> Employee Directory</h3>
+                    <div class="card-header-actions">
+                        <select class="period-select">
+                            <option>All Departments</option>
+                            <option>Engineering</option>
+                            <option>Sales</option>
+                            <option>HR</option>
+                            <option>Finance</option>
+                        </select>
+                        <button class="btn-add"><i class="fas fa-plus"></i> Add Employee</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Position</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#EMP-1001</td>
+                                <td><strong>John Smith</strong></td>
+                                <td>Engineering</td>
+                                <td>Senior Developer</td>
+                                <td>john.smith@nexus.com</td>
+                                <td><span class="status-badge success">Active</span></td>
+                                <td class="table-actions">
+                                    <button class="btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-sm btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#EMP-1002</td>
+                                <td><strong>Sarah Johnson</strong></td>
+                                <td>Sales</td>
+                                <td>Account Manager</td>
+                                <td>sarah.j@nexus.com</td>
+                                <td><span class="status-badge success">Active</span></td>
+                                <td class="table-actions">
+                                    <button class="btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-sm btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#EMP-1003</td>
+                                <td><strong>Michael Brown</strong></td>
+                                <td>Engineering</td>
+                                <td>Tech Lead</td>
+                                <td>mbrown@nexus.com</td>
+                                <td><span class="status-badge pending">On Leave</span></td>
+                                <td class="table-actions">
+                                    <button class="btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-sm btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#EMP-1004</td>
+                                <td><strong>Emily Davis</strong></td>
+                                <td>HR</td>
+                                <td>HR Manager</td>
+                                <td>emily.d@nexus.com</td>
+                                <td><span class="status-badge success">Active</span></td>
+                                <td class="table-actions">
+                                    <button class="btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-sm btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#EMP-1005</td>
+                                <td><strong>David Wilson</strong></td>
+                                <td>Finance</td>
+                                <td>CFO</td>
+                                <td>dwilson@nexus.com</td>
+                                <td><span class="status-badge success">Active</span></td>
+                                <td class="table-actions">
+                                    <button class="btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-sm btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <footer class="dashboard-footer">
+                <p>&copy; 2026 NexusERP Enterprise. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
