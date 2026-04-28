@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusERP - Enterprise Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>NexusERP</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="hr-module.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>HR Management</span>
+                </a>
+                <a href="finance-module.html" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="inventory-module.html" class="nav-item">
+                    <i class="fas fa-boxes"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="analytics-module.html" class="nav-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="login.html" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>Dashboard</h1>
+                    <p class="breadcrumb">Home / Dashboard</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="icon-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </button>
+                        <button class="icon-btn">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                        <div class="user-profile">
+                            <img src="https://ui-avatars.com/api/?name=Admin+User&background=4F46E5&color=fff" alt="User">
+                            <span>Admin User</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card revenue">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Revenue</h3>
+                        <p class="stat-value">$284,750</p>
+                        <span class="stat-change positive">+12.5%</span>
+                    </div>
+                </div>
+                <div class="stat-card employees">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Employees</h3>
+                        <p class="stat-value">1,248</p>
+                        <span class="stat-change positive">+3.2%</span>
+                    </div>
+                </div>
+                <div class="stat-card orders">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Active Orders</h3>
+                        <p class="stat-value">847</p>
+                        <span class="stat-change positive">+8.1%</span>
+                    </div>
+                </div>
+                <div class="stat-card inventory">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Inventory Items</h3>
+                        <p class="stat-value">3,452</p>
+                        <span class="stat-change negative">-2.4%</span>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Revenue Chart -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-area"></i> Revenue Overview</h3>
+                        <select class="period-select">
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                            <option>Last 90 Days</option>
+                        </select>
+                    </div>
+                    <div class="card-body">
+                        <div class="bar-chart" id="revenueChart">
+                            <div class="chart-bars">
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 45%;"></div>
+                                    <span>Mon</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 65%;"></div>
+                                    <span>Tue</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 80%;"></div>
+                                    <span>Wed</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 55%;"></div>
+                                    <span>Thu</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 90%;"></div>
+                                    <span>Fri</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 70%;"></div>
+                                    <span>Sat</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 60%;"></div>
+                                    <span>Sun</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Recent Orders Table -->
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-shopping-bag"></i> Recent Orders</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-2847</td>
+                                    <td>Tech Solutions Inc.</td>
+                                    <td>$12,450</td>
+                                    <td><span class="status-badge success">Completed</span></td>
+                                    <td>Apr 28, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-2846</td>
+                                    <td>Global Enterprises</td>
+                                    <td>$8,320</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>Apr 28, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-2845</td>
+                                    <td>Prime Industries</td>
+                                    <td>$24,100</td>
+                                    <td><span class="status-badge success">Completed</span></td>
+                                    <td>Apr 27, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-2844</td>
+                                    <td>Apex Corporation</td>
+                                    <td>$6,780</td>
+                                    <td><span class="status-badge warning">Processing</span></td>
+                                    <td>Apr 27, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-2843</td>
+                                    <td>Stellar Systems</td>
+                                    <td>$15,920</td>
+                                    <td><span class="status-badge danger">Cancelled</span></td>
+                                    <td>Apr 26, 2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Department Distribution -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-pie-chart"></i> Department Distribution</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="pie-chart">
+                            <div class="pie-segment" style="background: conic-gradient(#4F46E5 0deg 126deg, #10B981 126deg 216deg, #F59E0B 216deg 270deg, #EF4444 270deg 360deg);"></div>
+                            <div class="pie-legend">
+                                <div class="legend-item"><span class="dot" style="background: #4F46E5;"></span>Engineering 35%</div>
+                                <div class="legend-item"><span class="dot" style="background: #10B981;"></span>Sales 25%</div>
+                                <div class="legend-item"><span class="dot" style="background: #F59E0B;"></span>HR 15%</div>
+                                <div class="legend-item"><span class="dot" style="background: #EF4444;"></span>Other 25%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Quick Actions -->
+                <div class="card quick-actions">
+                    <div class="card-header">
+                        <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="action-grid">
+                            <a href="#" class="action-btn">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Add Employee</span>
+                            </a>
+                            <a href="#" class="action-btn">
+                                <i class="fas fa-file-invoice"></i>
+                                <span>Create Invoice</span>
+                            </a>
+                            <a href="#" class="action-btn">
+                                <i class="fas fa-box-open"></i>
+                                <span>Add Product</span>
+                            </a>
+                            <a href="#" class="action-btn">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>View Reports</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="card activities-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-history"></i> Recent Activities</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon success">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Order #ORD-2847</strong> was completed successfully</p>
+                                    <span class="activity-time">2 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon info">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>New employee <strong>Sarah Johnson</strong> was added to Engineering</p>
+                                    <span class="activity-time">15 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon warning">
+                                    <i class="fas fa-exclamation"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>Low stock alert: <strong>Laptop Pro X1</strong> (12 remaining)</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon primary">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>Invoice <strong>#INV-8472</strong> was generated for TechCorp</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon success">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>Payment of <strong>$45,000</strong> received from Global Inc.</p>
+                                    <span class="activity-time">3 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Footer -->
+            <footer class="dashboard-footer">
+                <p>&copy; 2026 NexusERP Enterprise. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
